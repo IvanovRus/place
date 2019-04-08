@@ -1,0 +1,19 @@
+.posters {
+	width: 100%;
+}
+
+.posters__line--status1 {
+	background-color: #2a88bd;
+}
+
+.posters__line--status2 {
+	background-color: #c0f9b5;
+}
+
+.posters__line--status3 {
+	background-color: #d3bcff;
+}
+
+.posters__line--status4 {
+	background-color: #ffc4c4;
+}
