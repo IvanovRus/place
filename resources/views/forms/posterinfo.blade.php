@@ -6,18 +6,18 @@
 
 <div class="form-group">
 	<label for="exampleTextarea">Сообщение</label>
-	<textarea class="form-control" name="msg" id="postersMsg" rows="3">{{ $message }}}</textarea>
+	{{ $message }}
 </div>
 <div class="form-group row">
 	<label for="example-text-input" class="col-xs-2 col-form-label">lat</label>
 	<div class="col-xs-10">
-		<input class="form-control" name="lat" type="text" value="{{ $lat }}" id="postersLat">
+		{{ $lat }}
 	</div>
 </div>
 <div class="form-group row">
 	<label for="example-text-input" class="col-xs-2 col-form-label">lng</label>
 	<div class="col-xs-10">
-		<input class="form-control" name="lon" type="text" value="{{ $lon }}" id="postersLon">
+		{{ $lon }}
 	</div>
 </div>
 
