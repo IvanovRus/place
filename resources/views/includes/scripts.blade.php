@@ -4,3 +4,4 @@
 <script src="{{ asset('leaflet/leaflet.js') }}"></script>
 <script src="{{ asset('leaflet/leaflet.markercluster.js') }}"></script>
 <script src="{{ asset('leaflet/tile/Yandex.js') }}"></script>
+<script src="{{ asset('js/lightgallery.min.js') }}"></script>

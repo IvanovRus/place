@@ -16,6 +16,7 @@
     <link href="{{ asset('leaflet/leaflet.css') }}" rel="stylesheet">
     <link href="{{ asset('leaflet/MarkerCluster.css') }}" rel="stylesheet">
     <link href="{{ asset('leaflet/MarkerCluster.Default.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lightgallery.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">

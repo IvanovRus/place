@@ -2,6 +2,8 @@ $(document).ready(function() {
 	$('input[type=file]').change(function(){
 	    readImage(this);
 	});
+
+	lightGallery(document.getElementById('image-preview'));
 	
 	$('#posterform').on('submit',(function(e) 
 	{

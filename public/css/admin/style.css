@@ -2,18 +2,18 @@
 	width: 100%;
 }
 
-.posters__line--status1 {
+tr[data-status="1"] {
 	background-color: #2a88bd;
 }
 
-.posters__line--status2 {
+tr[data-status="2"] {
 	background-color: #c0f9b5;
 }
 
-.posters__line--status3 {
+tr[data-status="3"] {
 	background-color: #d3bcff;
 }
 
-.posters__line--status4 {
+tr[data-status="4"] {
 	background-color: #ffc4c4;
 }

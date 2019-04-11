@@ -43,7 +43,7 @@ class PosterController extends Controller
     public function create()
     {
 		if ( Auth::check() ) {
-			return view('forms.poster');
+			return view('forms.poster', ['title'=>'Добавление поста']);
 		} else {
 			return view('forms.notauth');
 		}
@@ -71,10 +71,12 @@ class PosterController extends Controller
 		
 		$poster = Poster::create($data);
 		if ($poster->id) {
-			$file = $request->file('file');
-			if ($file) {
-				$image = new ImageController;
-				$image->addImages($file, $poster->id, 'App\Poster');
+			$files = $request->file('file');
+			if (!empty($files)) {
+				foreach ($files as $file)  {
+					$image = new ImageController;
+					$image->addImages($file, $poster->id, 'App\Poster');
+				}
 			}
 		}
 		
@@ -93,6 +95,8 @@ class PosterController extends Controller
         if ($status) {
 			$posters->where('status', $status);
 		}
+
+		$posters->orderBy('created_at', 'desc');
 
 		$posters = $posters->get();
 
@@ -117,13 +121,13 @@ class PosterController extends Controller
 
 		$images = $poster->images;
 		$user = $poster->user;
+		$poster['title'] = 'Информация';
 
 		if(request()->ajax()) {
-			//return response()->json($poster, 200);
 			return view('forms.posterinfo', $poster);
 		}
 
-		return view('forms.poster');
+		return view('forms.posterinfo');
 	}
     
     /**

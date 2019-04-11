@@ -3,7 +3,7 @@
 <table class="posters">
 	<tr><th>Пользователь</th><th>Описание</th><th>Дейсивие</th></tr>
 	@foreach($posters as $poster)
-		<tr class="posters__line posters__line--status{{ $poster->status }}" data-poster="{{  $poster->id }}">
+		<tr class="posters__line" data-status="{{ $poster->status }}" data-poster="{{  $poster->id }}">
 			<td>{{ $poster['user']['name'] }}</td>
 			<td>{{ $poster->message }}</td>
 			<td>

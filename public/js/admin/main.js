@@ -42,7 +42,7 @@ $(document).ready(function() {
 			},
 
 			success: function(data){
-				console.log(data);
+				$("tr[data-poster='"+id+"']").attr("data-status", status);
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
 				console.log(XMLHttpRequest.responseText);

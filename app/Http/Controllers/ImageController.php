@@ -44,10 +44,11 @@ class ImageController extends Controller
     
     function addImages($file, $parent, $parent_type)
     {
-    	$path = public_path().'\upload\\';
+    	$path = public_path().'\upload\\'.$parent.'\\';
 	    $filename = str_random(20) .'.' . $file->getClientOriginalExtension() ?: 'png';
 	    $img = ImageInt::make($file);
-	     $img->resize(200,200)->save($path . $filename);
+	    $img->save($path.'original\\' . $filename);
+		$img->resize(300, 200)->save($path.'preview\\' . $filename);
 	    Image::create(['imageable_id' => $parent, 'imageable_type' => $parent_type, 'img' => $filename]);
 	    
 	    return true;

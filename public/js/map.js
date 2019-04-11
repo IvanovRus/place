@@ -21,13 +21,14 @@ $(document).ready(function() {
 
 function modalMsgShow(e)
 {
-	$('#basicModal').modal('show');
 	getFormPosters(e);
 }
 
-function modalClose()
+function modalClose(elem)
 {
 	$('#basicModal').modal('hide');
+	console.log(12);
+	$('.fade').remove();
 }
 
 function getPosters()
@@ -37,7 +38,6 @@ function getPosters()
 		url: '/posters/2',
 
 		success: function(data){
-			console.log(data);
 			var markers = new L.MarkerClusterGroup();
 			$.each(data,function(i, e) {
 				var marker = new L.Marker(new L.LatLng(e.lat, e.lon), {customId: e.id}).bindTooltip(e.message,
@@ -66,10 +66,10 @@ function getPosterById(id)
 		type: 'GET',
 		url: '/poster/'+id ,
 		success: function(data){
-			$('#basicModal').modal('show');
-			$('#basicModal div.modal-body').html(data);
+			$('body').append(data);
 			var lat = $('#postersLat').val();
 			var lng = $('#postersLon').val();
+			$('#basicModal').modal('show');
 			loadFormPosters(lat,lng);
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -85,7 +85,7 @@ function createBlockPosterContext(data)
 		append: $('<img/>',
 			{
 				class: 'ctx-img',
-				src: '/upload/'+(data['images'].length>0 ? data['images'][0]['img']:'b11d597fc2df00c9551e484cc64f4748.png'),
+				src: '/upload/preview/'+(data['images'].length>0 ? data['images'][0]['img']:'b11d597fc2df00c9551e484cc64f4748.png'),
 				click: function () {
 					getPosterById(data['id'])
 				}
@@ -116,10 +116,11 @@ function getFormPosters(e)
 			'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
 		},
 		success: function(data){
-			$('#basicModal div.modal-body').html(data);
+			$('body').append(data);
 			var lat = e.latlng.lat;
 			var lng = e.latlng.lng;
 			loadFormPosters(lat,lng);
+			$('#basicModal').modal('show');
 		},
 		error: function(XMLHttpRequest, textStatus, errorThrown) {
 			console.log(XMLHttpRequest.responseText);
@@ -129,6 +130,8 @@ function getFormPosters(e)
 
 function loadFormPosters(lat,lng)
 {
+	$('#modalClose').on('click', modalClose);
+
 	$('#postersLat').val(lat);
 	$('#postersLon').val(lng);
 
