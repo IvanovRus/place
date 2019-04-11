@@ -27,7 +27,6 @@ function modalMsgShow(e)
 function modalClose(elem)
 {
 	$('#basicModal').modal('hide');
-	console.log(12);
 	$('.fade').remove();
 }
 
