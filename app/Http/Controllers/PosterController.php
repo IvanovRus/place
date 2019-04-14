@@ -45,6 +45,7 @@ class PosterController extends Controller
 		if ( Auth::check() ) {
 			return view('forms.poster', ['title'=>'Добавление поста']);
 		} else {
+			
 			return view('forms.notauth');
 		}
     }
