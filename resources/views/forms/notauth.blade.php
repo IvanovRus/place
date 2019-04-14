@@ -9,7 +9,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="notauth">
-					Авторизуйтесь что бы добавить пост тест
+					Авторизуйтесь что бы добавить пост тест 2
 				</div>
 			</div>
 			<div class="modal-footer">
